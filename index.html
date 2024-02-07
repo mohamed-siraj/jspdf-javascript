@@ -40,8 +40,42 @@
             doc.line(145, 35, 180, 35);
 
             // add text head
-            doc.setFont("helvetica", "bold");
+            doc.setFont("courier", "bold");
             doc.text("INVOICE", 151, 37);
+
+            // invoice details 
+            doc.setFontSize(12);
+            doc.setFont("courier", "bold");
+            doc.text("Invoice No", 10, 50);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "normal");
+            doc.text("35487", 50, 50);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "bold");
+            doc.text("Date", 10, 58);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "normal");
+            doc.text("15/12/2023", 50, 58);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "bold");
+            doc.text("Telephone", 10, 72);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "normal");
+            doc.text("01154657863", 50, 72);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "bold");
+            doc.text("Email", 10, 79);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "normal");
+            doc.text("siraj@oganro.com", 50, 79);
+
 
             doc.save('invoice.pdf');
         }
