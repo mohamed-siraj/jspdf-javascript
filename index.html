@@ -5,26 +5,35 @@
 
     <!-- click button -->
     <a href="javascript:demoFromHTML()" class="button">download pdf</a>
-
+    <img src="assets/logo.jpeg">
     <!-- needed script -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/polyfills.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
 
     <!-- script for pdf generate and download -->
-    <script>
+    <script >
         function demoFromHTML() {
             var doc = new jsPDF({ format: 'a4' });
 
             /**
              * head image add
              **/
+            // const img =  ethereumjs.Buffer.Buffer.from("assets/logo.jpeg").toString('base64');
+            // console.log(img);
+            // doc.addImage(`data:image/jpeg;base64, ${img}`, "JPEG", 15, 40, 180, 180);
             
-            doc.setLineWidth(0.5);
-            doc.line(20, 25, 60, 25);
+            /**
+             * add line and color
+             **/
 
-            doc.save('Test.pdf');
+            doc.setLineWidth(7);
+            doc.line(0, 35, 10000, 35);
+            doc.setDrawColor(0,0,0);
+
+            doc.save('invoice.pdf');
         }
     </script>
 </body>
