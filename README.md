@@ -5,3 +5,4 @@
 # needed script
     - JQuery
     - jsPdf
+    - jspdf autotable

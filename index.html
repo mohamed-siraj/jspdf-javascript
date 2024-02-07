@@ -10,11 +10,10 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/polyfills.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
-
+    <script src="https://unpkg.com/jspdf-autotable@3.5.22/dist/jspdf.plugin.autotable.js"></script>
+    
     <!-- script for pdf generate and download -->
-    <script >
+    <script>
         function demoFromHTML() {
             var doc = new jsPDF({ format: 'a4' });
 
@@ -24,19 +23,19 @@
             // const img =  ethereumjs.Buffer.Buffer.from("assets/logo.jpeg").toString('base64');
             // console.log(img);
             // doc.addImage(`data:image/jpeg;base64, ${img}`, "JPEG", 15, 40, 180, 180);
-            
+
             /**
              * add line and color 
              **/
             // yellow
 
             doc.setLineWidth(7);
-            doc.setDrawColor(252,176,65);
+            doc.setDrawColor(252, 176, 65);
             doc.line(0, 35, 10000, 35);
 
             // white
             doc.setLineWidth(8);
-            doc.setDrawColor(255,255,255);
+            doc.setDrawColor(255, 255, 255);
             doc.line(145, 35, 180, 35);
 
             // add text head
@@ -76,6 +75,15 @@
             doc.setFont("courier", "normal");
             doc.text("siraj@oganro.com", 50, 79);
 
+            /**
+             **/
+             doc.autoTable({
+                head: [['Name', 'Email', 'Country']],
+                body: [
+                    ['David', 'david@example.com', 'Sweden'],
+                    ['Castille', 'castille@example.com', 'Spain'],
+                ],
+            })
 
             doc.save('invoice.pdf');
         }
