@@ -26,12 +26,22 @@
             // doc.addImage(`data:image/jpeg;base64, ${img}`, "JPEG", 15, 40, 180, 180);
             
             /**
-             * add line and color
+             * add line and color 
              **/
+            // yellow
 
             doc.setLineWidth(7);
+            doc.setDrawColor(252,176,65);
             doc.line(0, 35, 10000, 35);
-            doc.setDrawColor(0,0,0);
+
+            // white
+            doc.setLineWidth(8);
+            doc.setDrawColor(255,255,255);
+            doc.line(145, 35, 180, 35);
+
+            // add text head
+            doc.setFont("helvetica", "bold");
+            doc.text("INVOICE", 151, 37);
 
             doc.save('invoice.pdf');
         }
