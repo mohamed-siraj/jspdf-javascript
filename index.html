@@ -11,7 +11,7 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script src="https://unpkg.com/jspdf-autotable@3.5.22/dist/jspdf.plugin.autotable.js"></script>
-    
+
     <!-- script for pdf generate and download -->
     <script>
         function demoFromHTML() {
@@ -76,9 +76,15 @@
             doc.text("siraj@oganro.com", 50, 79);
 
             /**
+             * table create
              **/
-             doc.autoTable({
-                head: [['Name', 'Email', 'Country']],
+            doc.autoTable({
+                headStyles: { fillColor: [32, 33, 36] },
+                footStyles : { fillColor: [32, 33, 36] },
+                theme: 'striped',
+                margin: { top: 10 },
+                head: [['Description', 'Price', 'Qty.', 'Total']],
+                foot: [['', '', 'Total :', `202000`]],
                 body: [
                     ['David', 'david@example.com', 'Sweden'],
                     ['Castille', 'castille@example.com', 'Spain'],
