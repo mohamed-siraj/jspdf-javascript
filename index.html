@@ -45,42 +45,48 @@
             // invoice details 
             doc.setFontSize(12);
             doc.setFont("courier", "bold");
-            doc.text("Invoice No", 10, 50);
+            doc.text("Invoice No", 15, 50);
 
             doc.setFontSize(12);
             doc.setFont("courier", "normal");
-            doc.text("35487", 50, 50);
+            doc.text("35487", 55, 50);
 
             doc.setFontSize(12);
             doc.setFont("courier", "bold");
-            doc.text("Date", 10, 58);
+            doc.text("Date", 15, 58);
 
             doc.setFontSize(12);
             doc.setFont("courier", "normal");
-            doc.text("15/12/2023", 50, 58);
+            doc.text("15/12/2023", 55, 58);
 
             doc.setFontSize(12);
             doc.setFont("courier", "bold");
-            doc.text("Telephone", 10, 72);
+            doc.text("Telephone", 15, 72);
 
             doc.setFontSize(12);
             doc.setFont("courier", "normal");
-            doc.text("01154657863", 50, 72);
+            doc.text("01154657863", 55, 72);
 
             doc.setFontSize(12);
             doc.setFont("courier", "bold");
-            doc.text("Email", 10, 79);
+            doc.text("Email", 15, 79);
 
             doc.setFontSize(12);
             doc.setFont("courier", "normal");
-            doc.text("siraj@oganro.com", 50, 79);
+            doc.text("siraj@oganro.com", 55, 79);
 
             /**
              * table create
              **/
+
+            doc.setLineWidth(180);
+            doc.setDrawColor(247, 247, 247);
+            doc.line(12, 178, 198, 178);
+
             doc.autoTable({
+                startY: 90,
                 headStyles: { fillColor: [32, 33, 36] },
-                footStyles : { fillColor: [32, 33, 36] },
+                footStyles: { fillColor: [32, 33, 36] },
                 theme: 'striped',
                 margin: { top: 10 },
                 head: [['Description', 'Price', 'Qty.', 'Total']],
@@ -89,7 +95,41 @@
                     ['David', 'david@example.com', 'Sweden'],
                     ['Castille', 'castille@example.com', 'Spain'],
                 ],
-            })
+            });
+
+            /**
+             * terms & conditions
+             * **/
+            doc.setFontSize(11);
+            doc.setFont("courier", "bold");
+            doc.text("Terms & Conditions", 15, 215);
+
+            doc.setFontSize(10);
+            doc.setFont("courier", "normal");
+            doc.text("Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 15, 220);
+            doc.text("Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 15, 225);
+            doc.text("Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 15, 230);
+
+            
+
+            /**
+             * footer
+             **/
+            doc.setLineWidth(3);
+            doc.setDrawColor(252, 176, 65);
+            doc.line(0, 275, 10000, 275);
+
+            doc.setFontSize(10);
+            doc.setFont("courier", "normal");
+            doc.text("53,Dehiwala Boralasgamuwa", 15, 288);
+
+            doc.setFontSize(10);
+            doc.setFont("courier", "normal");
+            doc.text("0112854798 / 0112854798", 85, 288);
+
+            doc.setFontSize(10);
+            doc.setFont("courier", "normal");
+            doc.text("admin@gmail.com", 162, 288);
 
             doc.save('invoice.pdf');
         }
