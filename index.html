@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <!-- click button -->
+    <a href="javascript:demoFromHTML()" class="button">download pdf</a>
+    <img src="assets/logo.jpeg">
+    <!-- needed script -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="https://unpkg.com/jspdf-autotable@3.5.22/dist/jspdf.plugin.autotable.js"></script>
+
+    <!-- script for pdf generate and download -->
+    <script>
+        function demoFromHTML() {
+            var doc = new jsPDF({ format: 'a4' });
+
+            /**
+             * head image add
+             **/
+            // doc.addImage('https://oganro2.s3.us-east-2.amazonaws.com/Eceypay/logo/logo.jpeg', 'JPEG', 50, 33, 40, 18, undefined, undefined, 270);
+            /**
+             * add line and color 
+             **/
+            // yellow
+
+            doc.setLineWidth(7);
+            doc.setDrawColor(252, 176, 65);
+            doc.line(0, 35, 10000, 35);
+
+            // white
+            doc.setLineWidth(8);
+            doc.setDrawColor(255, 255, 255);
+            doc.line(145, 35, 180, 35);
+
+            // add text head
+            doc.setFont("courier", "bold");
+            doc.text("INVOICE", 151, 37);
+
+            // invoice details 
+            doc.setFontSize(12);
+            doc.setFont("courier", "bold");
+            doc.text("Invoice No", 15, 50);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "normal");
+            doc.text("35487", 55, 50);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "bold");
+            doc.text("Date", 15, 58);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "normal");
+            doc.text("15/12/2023", 55, 58);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "bold");
+            doc.text("Telephone", 15, 72);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "normal");
+            doc.text("94771119948", 55, 72);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "bold");
+            doc.text("Email", 15, 79);
+
+            doc.setFontSize(12);
+            doc.setFont("courier", "normal");
+            doc.text("amsiraj94@gmail.com", 55, 79);
+
+            /**
+             * table create
+             **/
+
+            doc.setLineWidth(180);
+            doc.setDrawColor(247, 247, 247);
+            doc.line(12, 178, 198, 178);
+
+            doc.autoTable({
+                startY: 90,
+                headStyles: { fillColor: [32, 33, 36] },
+                footStyles: { fillColor: [32, 33, 36] },
+                theme: 'striped',
+                margin: { top: 10 },
+                head: [['Description', 'Price', 'Qty.', 'Total']],
+                foot: [['', '', 'Total :', `202000`]],
+                body: [
+                    ['David', 'david@example.com', 'Sweden'],
+                    ['Castille', 'castille@example.com', 'Spain'],
+                ],
+            });
+
+            /**
+             * terms & conditions
+             * **/
+            doc.setFontSize(11);
+            doc.setFont("courier", "bold");
+            doc.text("Terms & Conditions", 15, 210);
+
+            doc.setFontSize(10);
+            doc.setFont("courier", "normal");
+            doc.text("Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 15, 215);
+            doc.text("Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 15, 220);
+            doc.text("Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 15, 225);
+
+            /**
+             * payment info
+             * **/
+            doc.setFontSize(11);
+            doc.setFont("courier", "bold");
+            doc.text("Payment Info", 15, 235);
+
+            doc.setFontSize(10);
+            doc.setFont("courier", "normal");
+            doc.text("Bank Of Ceylone (Dehiwala)", 15, 240);
+            doc.text("0094756595269", 15, 245);
+
+            doc.setFontSize(10);
+            doc.setFont("courier", "bold");
+            doc.text("Please make cheques payble to A/C payee : techcodz (PVT) LTD.", 15, 255);
+
+            /**
+             * footer
+             **/
+            doc.setLineWidth(3);
+            doc.setDrawColor(252, 176, 65);
+            doc.line(0, 275, 10000, 275);
+
+            doc.setFontSize(10);
+            doc.setFont("courier", "normal");
+            doc.text("53,Dehiwala Boralasgamuwa", 15, 288);
+
+            doc.setFontSize(10);
+            doc.setFont("courier", "normal");
+            doc.text("0112854798 / 0112854798", 85, 288);
+
+            doc.setFontSize(10);
+            doc.setFont("courier", "normal");
+            doc.text("amsiraj94@gmail.com", 162, 288);
+
+            doc.save('invoice.pdf');
+        }
+    </script>
+</body>
+
+</html>
